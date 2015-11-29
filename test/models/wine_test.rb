@@ -20,4 +20,12 @@ class WineTest < ActiveSupport::TestCase
         wine.price = 0.001
         assert wine.invalid?
     end
+
+    test "invalid countries should fail" do
+        wine.origin = "XX" # permanently reserved code
+        assert wine.invalid?
+
+        wine.origin = "Belgium" # must be ISO 3166-2
+        assert wine.invalid?
+    end
 end

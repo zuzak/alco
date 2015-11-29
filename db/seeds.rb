@@ -15,7 +15,7 @@ Wine.create!(
     price: 0.49,
     short_desc: 'Wine perfect for the less-than-discerning customer',
     supplier: 'Contoso',
-    origin: 'us',
+    origin: 'FR',
     vegetarian: false
 )
 
