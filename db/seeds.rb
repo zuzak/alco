@@ -16,6 +16,7 @@ Wine.create!(
     short_desc: 'Wine perfect for the less-than-discerning customer',
     supplier: 'Contoso',
     origin: 'FR',
-    vegetarian: false
+    vegetarian: false,
+    image: 'image.jpg'
 )
 

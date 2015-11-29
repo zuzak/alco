@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+	  <th>Image</th>
       <th>Desc</th>
       <th>Short desc</th>
       <th>Price</th>
@@ -20,6 +21,7 @@
     <% @wines.each do |wine| %>
       <tr>
         <td><%= wine.name %></td>
+		<td><%= image_tag(wine.image) %></td>
         <td><%= wine.desc %></td>
         <td><%= wine.short_desc %></td>
         <td><%= wine.price %></td>
