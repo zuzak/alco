@@ -49,4 +49,3 @@ end
 
 
 gem 'country_select'
-gem 'countries'
