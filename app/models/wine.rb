@@ -12,6 +12,6 @@ class Wine < ActiveRecord::Base
     end
 
     def image_exists
-        errors.add(:image, "must exist on the server") unless File::exists?('app/assets/images/' + image)
+        errors.add(:image, "must exist on the server") unless File::exists?('app/assets/images/' + image.to_s)
     end
 end
