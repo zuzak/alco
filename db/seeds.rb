@@ -6,17 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Wine.create!(
-    name: 'Contoso Basics Alcohol-Free Wine',
-    desc: %{This exclusive wine has a taste directly in line with its
-        price-point. Expect cheap flavours of disappointment, with a
-        faint taste of copper-plated steel from the loose change in
-        your pocket.},
-    price: 0.49,
-    short_desc: 'Wine perfect for the less-than-discerning customer',
-    supplier: 'Contoso',
-    origin: 'FR',
-    vegetarian: false,
-    image: 'image.jpg'
-)
+require 'httparty'
+res = HTTParty.get('http://localhost:6697');
+data = JSON.parse(res.body)
 
+data.each do |datum|
+    Wine.create(datum)
+end
