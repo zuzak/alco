@@ -1,4 +1,8 @@
 class Wine < ActiveRecord::Base
+    has_many :orders
+
+    before_destroy :ensure_unreferenced
+
     validates :name, :short_desc, presence: true
     validates :price, numericality: {greater_than_or_equal_to: 0.01}
     validates :origin, length: {maximum: 2} # fairly pointless
@@ -13,5 +17,16 @@ class Wine < ActiveRecord::Base
 
     def image_exists
         errors.add(:image, "must exist on the server") unless File::exists?('app/assets/images/' + image.to_s)
+    end
+
+    private
+
+    def ensure_unreferenced
+        if orders.empty?
+            return true
+        else
+            errors.add(:base, 'Still has orders!')
+            return false
+        end
     end
 end

@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'httparty'
-res = HTTParty.get('http://localhost:6697');
+#res = HTTParty.get('http://boone.fluv.net:80');
+res = HTTParty.get('https://chippy.ch/files/wines.txt');
 data = JSON.parse(res.body)
 
 data.each do |datum|

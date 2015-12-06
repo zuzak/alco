@@ -1,0 +1,21 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<h2>Your Basket</h2>
+<table>
+	<tr>
+		<th>
+			Name
+		</th>
+		<th>
+			Price
+		</th>
+	</tr>
+	<% @cart.orders.each do |item| %>
+		<tr>
+			<td><%= item.wine.name %></td>
+			<td><%= item.wine.price %></td>
+</tr> <% end %> </table>
+<%= link_to 'Back', wines_path %>
