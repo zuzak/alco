@@ -10,7 +10,6 @@
 				<div class="bar">
 					<span class="price"><%= number_to_currency(wine.price, unit: "£") %></span>
 					<span class="size"><%= wine.size %>&#8467;</span>
-					<%= button_to 'Add to Basket', orders_path(wine_id: wine) %>
 				</div>
 			<% end %>
 		</div>

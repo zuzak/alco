@@ -12,6 +12,7 @@ class WinesController < ApplicationController
   # GET /wines/1
   # GET /wines/1.json
   def show
+      @wine.origin = ISO3166::Country.new(@wine.origin)
   end
 
   # GET /wines/new

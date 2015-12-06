@@ -1,8 +1,3 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
-
 <h2>Your Basket</h2>
 <table>
 	<tr>
@@ -12,10 +7,19 @@
 		<th>
 			Price
 		</th>
+		<th>
+			Quantity
+		</th>
 	</tr>
 	<% @cart.orders.each do |item| %>
 		<tr>
-			<td><%= item.wine.name %></td>
-			<td><%= item.wine.price %></td>
+			<td><%= link_to item.wine.name, item.wine %></td>
+			<td class="price"><%= number_to_currency(item.wine.price,unit:"£") %></td>
+			<td><%= item.quantity %></td>
+
 </tr> <% end %> </table>
+<div class="footer">
+<%= button_to 'Empty basket', @cart, method: :delete, data: {confirm: 'Certain?'}%>
+<br>
 <%= link_to 'Back', wines_path %>
+</div>

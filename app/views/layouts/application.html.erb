@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ruby</title>
+  <title>My Alcohol Free Wines</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<div class="header">
-		<div class="toolbox"></div>
-		<% if notice %>
+		<ul class="toolbox">
+			<li><%= link_to 'Log in', '/login' %></li>
+			<% if set_cart %>
+				<li><%= link_to 'View basket', set_cart %></li>
+			<% end %>
+		</ul>
+		<h1><a href="/">My Alcohol Free Wines</a></h1>
+		<% if notice or flash[:alert] %>
 			<div class="notice">
 				<%= notice %>
+				<%= flash[:alert] %>
 			</div>
 		<% end %>
-		<h1>My Alcohol Free Wines</h1>
 	</div>
 	<div class="content">
 		<%= yield %>

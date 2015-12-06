@@ -3,7 +3,7 @@ class Wine < ActiveRecord::Base
 
     before_destroy :ensure_unreferenced
 
-    validates :name, :short_desc, presence: true
+    validates :name, :short_desc, presence: true, uniqueness: true
     validates :price, numericality: {greater_than_or_equal_to: 0.01}
     validates :origin, length: {maximum: 2} # fairly pointless
 

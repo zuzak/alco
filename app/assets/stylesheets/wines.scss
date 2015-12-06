@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.winelist {
+	width: 750px; /* 5(120+2(15)) */
+	margin-left: auto;
+	margin-right: auto;
+}
 .wine {
 	width: 120px;
 	text-align:center;
 	float:left;
 	margin: 15px;
-	min-height: 250px;
+	min-height: 220px;
+}
+.winelist .wine:nth-child(5n+1) {
+	clear:left; /* hack to make them line up */
 }
 .wine .name {
 	display:block;
@@ -38,3 +46,47 @@
 	width: 33%;
 	margin:0;
 }
+.wine a, .a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+.infobox {
+	float: left;
+	width: 300px;
+}
+.infobox img {
+	width: 290px;
+	text-align:center;
+}
+.infobox table {
+	width: 100%;
+}
+.infobox th {
+	text-align: right;
+}
+.infobox form {
+	text-align:center;
+	padding-top: 1em;
+}
+.desc {
+	padding: 1em;
+	margin: 1em;
+	line-height: 2em;
+}
+.short-desc, .desc {
+	font-family: serif;
+}
+/* dropcap */
+.desc:first-letter { float:left; font-size: 3em; line-height: 3em;}
+.body {
+	max-width: 50em;
+	margin:auto;
+}
+.grape-red, .grape-white {
+	width: 1em; height: 1em;
+	display:inline-block;
+	border-radius: 50px;
+	margin-right: 5px;
+}
+.grape-white { background-color: #E8D77D; }
+.grape-red { background-color: #4B010E; }

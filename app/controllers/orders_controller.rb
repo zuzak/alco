@@ -28,11 +28,11 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     wine = Wine.find(params[:wine_id])
-    @order = @cart.orders.build(wine: wine)
+    @order = @cart.add_wine(wine.id)
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order.cart, notice: 'Order was successfully created.' }
+        format.html { redirect_to @cart, notice: 'This wine has been added to basket.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

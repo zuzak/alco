@@ -14,8 +14,54 @@
  *= require_self
  */
 
-body {
-	max-width: 800px;
-	margin: auto;
+body, html {margin:0;}
+.header {
+	background-color: #555;
+	color: #eee;
+	padding: 2em;
+	padding-bottom: 1em;
+	margin-bottom:0;
 }
-
+.content, body {
+	background-color: #ccc;
+	margin-top:0;
+}
+h2, .footer {
+	margin-top: 0;
+	padding: 1em;
+	background-color: #aaa;
+	text-align:center;
+	clear:both;
+}
+body {
+	background-color: #333;
+}
+h1 {
+	display:inline-block;
+}
+.toolbox {
+	float:right;
+	background-color: #222;
+	padding: 1em;
+	border-radius: 0.5em;
+	list-style-type:none;
+	overflow:hidden;
+}
+.toolbox li {
+	float:left;
+}
+.toolbox li a {
+	color: #ddd;
+	display:block;
+	padding-right:0.5em;
+	padding-left:0.5em;
+	text-align:center;
+}
+.toolbox a:hover {
+	background-color: transparent;
+		color: #fff;
+}
+h1 a, h1 a:hover; h1 a:visited {
+	color:inherit !important;
+	text-decoration:inherit !important;
+}

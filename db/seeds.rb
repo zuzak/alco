@@ -5,12 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 require 'httparty'
-#res = HTTParty.get('http://boone.fluv.net:80');
-res = HTTParty.get('https://chippy.ch/files/wines.txt');
-data = JSON.parse(res.body)
+suppliers = Array[
+    'https://chippy.ch/files/wines.txt',
+    'https://chippy.ch/files/wines2.txt'
+]
 
-data.each do |datum|
-    Wine.create(datum)
-end
+suppliers.each { |url|
+    res = HTTParty.get('https://chippy.ch/files/wines.txt');
+    data = JSON.parse(res.body)
+
+    data.each do |datum|
+        print '.'
+        Wine.create(datum)
+    end
+}
+puts 'done.'
