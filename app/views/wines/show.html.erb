@@ -1,47 +1,47 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @wine.name %></h2>
+<div class="body">
 
-<p>
-  <strong>Name:</strong>
-  <%= @wine.name %>
-</p>
+<div class="infobox">
+  <%= image_tag(@wine.image) %>
+  <table>
+	  <tr>
+		  <th>Size</th>
+		  <td><%= @wine.size %>&#8467; &#8494;</td>
+	  </tr>
+	  <tr>
+		  <th>Price</th>
+		  <td><%= number_to_currency(@wine.price, unit: "£") %></td>
+	  </tr>
+	  <tr>
+		  <th>Origin</th>
+		  <td><%= @wine.origin %></td>
+	  </tr>
+	  <tr>
+		  <th>Grape</th>
+		  <td><span class="grape-<%= @wine.grape %>"></span><%= @wine.grape %></td>
+	  </tr>
+	  <tr>
+		  <th>Supplier</th>
+		  <td><%= @wine.supplier %></td>
+	  </tr>
+	  <% if @wine.vegetarian == true %>
+		  <tr>
+			  <th>Vegetarian</th>
+			  <td>This wine is vegetarian.</td>
+		  </tr>
+	  <% end %>
+	  <tr>
+		  <td colspan="2">
+			  <%= button_to 'Add to Basket', orders_path(wine_id: @wine) %> 
+		  </td>
+	  </tr>
+  </table>
+</div>
 
-<p>
-  <strong>Desc:</strong>
+<p class="desc">
   <%= @wine.desc %>
 </p>
-
-<p>
-  <strong>Short desc:</strong>
-  <%= @wine.short_desc %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @wine.price %>
-</p>
-
-<p>
-  <strong>Origin:</strong>
-  <%= @wine.origin %>
-</p>
-
-<p>
-  <strong>Vegetarian:</strong>
-  <%= @wine.vegetarian %>
-</p>
-
-<p>
-  <strong>Supplier:</strong>
-  <%= @wine.supplier %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @wine.image %>
-</p>
-<p>
-  <strong>Size:</strong>
-  <%= @wine.size %>
-</p>
-<%= link_to 'Edit', edit_wine_path(@wine) %> |
+</div>
+<p class="footer">
 <%= link_to 'Back', wines_path %>
+</p>

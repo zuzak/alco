@@ -1,22 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Wines</h1>
+<h2>Listing Wines</h2>
 
 <div class="winelist">
     <% @wines.each do |wine| %>
 		<div class="wine">
-			<%= image_tag(wine.image) %>
-			<span class="name"><%= wine.name %></span>
-			<span class="desc"><%= wine.short_desc %></span>
-			<%= link_to 'Show', wine %>
-			<div class="bar">
-				<span class="price">£<%= wine.price %></span>
-				<span class="size"><%= wine.size %>&#8467;</span>
-				<%= button_to 'Add to Basket', orders_path(wine_id: wine) %>
-			</div>
+			<%= link_to wine do %>
+				<%= image_tag(wine.image) %>
+				<span class="name"><%= wine.name %></span>
+				<span class="short-desc"><%= wine.short_desc %></span>
+				<div class="bar">
+					<span class="price"><%= number_to_currency(wine.price, unit: "£") %></span>
+					<span class="size"><%= wine.size %>&#8467;</span>
+					<%= button_to 'Add to Basket', orders_path(wine_id: wine) %>
+				</div>
+			<% end %>
 		</div>
     <% end %>
 </div>
 
-<%= link_to 'New Wine', new_wine_path %>
-<p class="paginate"><%= paginate @wines %></p>
+<div class="footer">
+	<p class="paginate"><%= paginate @wines %></p>
+</div>
