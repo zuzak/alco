@@ -19,7 +19,8 @@
 
 </tr> <% end %> </table>
 <div class="footer">
-<%= button_to 'Empty basket', @cart, method: :delete, data: {confirm: 'Certain?'}%>
+	<%= button_to 'Check out', new_checkout_path, method: :get %>
+	<%= button_to 'Empty basket', @cart, method: :delete, data: {confirm: 'Certain?'}%>
 <br>
 <%= link_to 'Back', wines_path %>
 </div>

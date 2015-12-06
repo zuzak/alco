@@ -1,0 +1,42 @@
+<%= form_for(@checkout) do |f| %>
+  <% if @checkout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checkout.errors.count, "error") %> prohibited this checkout from being saved:</h2>
+
+      <ul>
+      <% @checkout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+	  <tr>
+		  <th>
+				<%= f.label :name %><br>
+		</th>
+		<td>
+    <%= f.text_field :name %>
+</td>
+<tr>
+	<th>
+    <%= f.label :address %><br>
+</th>
+<td>
+    <%= f.text_area :address %>
+</td>
+</tr>
+<tr>
+	<th>
+    <%= f.label :email %><br>
+</th>
+<td>
+    <%= f.text_field :email %>
+</td>
+</tr>
+</table>
+  <div class="footer">
+    <%= f.submit 'Dispatch Order' %>
+  </div>
+<% end %>

@@ -6,8 +6,9 @@ table {
 	margin: auto;
 	padding-bottom: 2em;
 }
-input {
+input, textarea {
 	background-color: #ddd;
+	width: 200px;
 	border: 1px solid #aaa;
 }
 input[type="submit"] {

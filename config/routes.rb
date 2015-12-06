@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :checkouts
     controller :sessions do
         get 'login' => :new
         post 'login' => :create
