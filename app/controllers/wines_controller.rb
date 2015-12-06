@@ -6,7 +6,7 @@ class WinesController < ApplicationController
   def index
     # @wines = Wine.all
     # @wines = Wine.order('price').page(params[:page])
-    @wines = Wine.all.page(params[:page])
+    @wines = Wine.order('name, price').page(params[:page])
   end
 
   # GET /wines/1
