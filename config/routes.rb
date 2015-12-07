@@ -6,6 +6,10 @@ Rails.application.routes.draw do
         post 'login' => :create
         post 'logout' => :destroy
     end
+    controller :users do
+        get 'register' => :new
+        post 'register' => :new
+    end
   get 'sessions/new'
 
   get 'sessions/create'

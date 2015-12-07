@@ -53,3 +53,4 @@ gem 'httparty'
 
 gem 'kaminari'
 gem 'rails-i18n' # for en-GB locale
+gem 'validates_email_format_of'

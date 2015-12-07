@@ -11,11 +11,16 @@
 					<span class="price"><%= number_to_currency(wine.price, unit: "£") %></span>
 					<span class="size"><%= wine.size %>&#8467;</span>
 				</div>
+				<span class="supplier"><%= wine.supplier %></span>
 			<% end %>
 		</div>
     <% end %>
 </div>
 
 <div class="footer">
+<%= form_tag(wines_path, :method => "get") do %>
+	<%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+	<%= submit_tag "Search" %>
+<% end %>
 	<p class="paginate"><%= paginate @wines %></p>
 </div>

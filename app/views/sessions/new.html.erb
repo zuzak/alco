@@ -1,5 +1,5 @@
 <h2>Log in</h2>
-<form>
+<%= form_tag do %>
 	<table>
 		<tr>
 			<th>
@@ -24,4 +24,5 @@
 			</td>
 		</tr>
 	</table>
-</form>
+<% end %>
+<div class="footer">No account? <a href="/register">Register</a>.

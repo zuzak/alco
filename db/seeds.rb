@@ -12,7 +12,7 @@ suppliers = Array[
 ]
 
 suppliers.each { |url|
-    res = HTTParty.get('https://chippy.ch/files/wines.txt');
+    res = HTTParty.get(url);
     data = JSON.parse(res.body)
 
     data.each do |datum|

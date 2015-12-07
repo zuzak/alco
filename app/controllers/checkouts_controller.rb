@@ -31,10 +31,12 @@ class CheckoutsController < ApplicationController
   # POST /checkouts.json
   def create
     @checkout = Checkout.new(checkout_params)
+    @checkout.add_orders_from_cart(@cart,checkout_params)
 
     respond_to do |format|
       if @checkout.save
-        format.html { redirect_to @checkout, notice: 'Checkout was successfully created.' }
+          Cart.destroy(session[:cart_id])
+        format.html { redirect_to wines_url, notice: 'Order processed! Your "wines" will be on their way soon.' }
         format.json { render :show, status: :created, location: @checkout }
       else
         format.html { render :new }

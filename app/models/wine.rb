@@ -29,4 +29,14 @@ class Wine < ActiveRecord::Base
             return false
         end
     end
+
+    # code borrowed from rab26
+    def self.search(pattern)
+        if pattern.blank?
+            all
+        else
+            where('name LIKE ?', "%" + pattern + "%")
+        end
+    end
+
 end
