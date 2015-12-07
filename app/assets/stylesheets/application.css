@@ -61,7 +61,7 @@ h1 {
 	background-color: transparent;
 		color: #fff;
 }
-h1 a, h1 a:hover; h1 a:visited {
+h1 a, h1 a:hover, h1 a:visited {
 	color:inherit !important;
 	text-decoration:inherit !important;
 }
